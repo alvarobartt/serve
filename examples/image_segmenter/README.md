@@ -67,9 +67,9 @@ def preprocessing(img_path_or_buf):
     return raw_image_bytes.read()
 ```
 
-__Note that the preprocessing should be more extense, but in this case as the model has been deployed with a pre-defined 
+__Note__: that the preprocessing should be more extense, but in this case as the model has been deployed with a pre-defined 
 handler named `image_segmenter`, there is no need to apply any transformation to the input image besides the conversion to bytes
-as that's the expected input format of images in the requests data.__
+as that's the expected input format of images in the requests data.
 
 Then you will need to proceed with the request to `localhost:8080`, which are the default address and port where TorchServe is
 deployed. So the request should be sent to the `predictions/` endpoint followed by the name of the registered model that will be
@@ -89,4 +89,4 @@ def predict(preprocessed_image_bytes):
     return torch.FloatTensor(output)
 ```
 
-For more information regarding the TorchServe REST APIs please visit: https://pytorch.org/serve/rest_api.html)
+For more information regarding the TorchServe REST APIs please visit: https://pytorch.org/serve/rest_api.html
